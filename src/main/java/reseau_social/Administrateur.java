@@ -1,0 +1,26 @@
+package reseau_social;
+
+import java.time.LocalDate;
+
+public class Administrateur extends Utilisateur{
+    public Administrateur(String id, String nom, String email, LocalDate dateCreation){
+        super(id, nom, email);
+    }
+
+    public void supprimerCommentaire(Publication publication, Commentaire commentaire) {
+        publication.getCommentaire().remove(commentaire);
+    }
+    
+    public void supprimerPublication(GroupeUtilisateur groupe, Publication publication) {
+        groupe.getPublications().remove(publication);
+    }
+
+    public void supprimerUtilisateur(GroupeUtilisateur groupe, Utilisateur utilisateur){
+        groupe.getMembre().remove(utilisateur);
+    }
+    @Override
+    public String toString() {
+        return super.toString() + "\nStatus : Administrateur";
+    }
+    
+}
